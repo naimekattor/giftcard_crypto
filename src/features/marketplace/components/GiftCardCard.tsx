@@ -19,43 +19,42 @@ export function GiftCardCard({ card }: GiftCardCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -4 }}
-      className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:shadow-md"
+      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d0d] p-6 transition-all hover:border-white/30"
     >
-      <div className="mb-4 flex items-start justify-between">
+      <div className="flex justify-between items-start mb-10">
         <div 
-          className="flex h-12 w-12 items-center justify-center rounded-xl text-white shadow-inner"
-          style={{ backgroundColor: retailer?.color || '#000' }}
+          className="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-black shadow-lg"
+          style={{ backgroundColor: retailer?.color || '#fff' }}
         >
-          <span className="text-xs font-bold uppercase">{retailer?.name.slice(0, 2)}</span>
+          {retailer?.name.slice(0, 1)}
         </div>
-        <div className="flex flex-col items-end">
-          <span className="text-2xl font-bold text-slate-900">${card.price}</span>
-          <span className="text-sm text-slate-400 line-through">${card.value}</span>
-        </div>
-      </div>
-
-      <div className="mb-6">
-        <h4 className="font-semibold text-slate-900">{retailer?.name} Gift Card</h4>
-        <div className="mt-1 flex items-center gap-1.5 text-xs font-medium text-emerald-600">
-          <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-          {discount}% Savings
-        </div>
-      </div>
-
-      <div className="flex items-center justify-between border-t border-slate-100 pt-4">
-        <div className="flex items-center gap-1 text-xs text-slate-500">
-          <ShieldCheck className="h-3.5 w-3.5 text-blue-500" />
+        <div className="bg-emerald-500/10 text-emerald-500 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider border border-emerald-500/20">
           Verified
         </div>
-        
-        <button className="flex items-center gap-1 text-sm font-semibold text-slate-950 underline-offset-4 transition-all hover:underline">
-          Buy Now
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </button>
       </div>
 
-      {/* Decorative element */}
-      <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-slate-50 opacity-0 transition-opacity group-hover:opacity-100" />
+      <div className="space-y-1 mb-8">
+        <h3 className="text-xl font-medium text-white">{retailer?.name} {card.value > 0 ? `$${card.value}` : ''}</h3>
+        <p className="text-xs text-white/40">Electronic Code Delivery</p>
+      </div>
+
+      <div className="flex items-end justify-between border-t border-white/5 pt-6">
+        <div>
+          <div className="text-[10px] text-white/30 uppercase font-bold tracking-widest">Value</div>
+          <div className="text-2xl font-light text-white">${card.value.toFixed(2)}</div>
+        </div>
+        <div className="text-right">
+          <div className="text-[10px] text-white/30 uppercase font-bold tracking-widest">Price</div>
+          <div className="text-lg font-medium text-white">${card.price.toFixed(2)}</div>
+        </div>
+      </div>
+
+      <button className="w-full mt-6 bg-white text-black py-3 text-xs font-bold uppercase tracking-widest hover:bg-white/90 transition-colors">
+        Secure Purchase
+      </button>
+
+      {/* Hover effect light glow */}
+      <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none" />
     </motion.div>
   );
 }

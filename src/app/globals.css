@@ -6,24 +6,24 @@
 }
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --card: #ffffff;
-  --card-foreground: #0f172a;
-  --primary: #0f172a;
-  --primary-foreground: #f8fafc;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
+  --background: #050505;
+  --foreground: #e0e0e0;
+  --card: #0d0d0d;
+  --card-foreground: #e0e0e0;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --secondary: #0a0a0a;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #888888;
+  --accent: #ffffff;
+  --accent-foreground: #000000;
   --destructive: #ef4444;
-  --destructive-foreground: #f8fafc;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #94a3b8;
-  --radius: 0.75rem;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.05);
+  --ring: rgba(255, 255, 255, 0.3);
+  --radius: 1rem;
 }
 
 body {
@@ -36,4 +36,14 @@ body {
   * {
     border-color: var(--border);
   }
+}
+
+.dark-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  transition: border-color 0.2s ease;
+}
+
+.dark-card:hover {
+  border-color: rgba(255, 255, 255, 0.3);
 }
