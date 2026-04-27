@@ -1,24 +1,35 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
-import { Providers } from './providers';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-});
+import { providers } from './providers';
 
 export const metadata: Metadata = {
-  title: 'AnonGift - Anonymous Gift Card Marketplace',
-  description: 'Buy and sell gift cards securely and anonymously.',
+  title: 'GiftCard Market - Buy & Sell Gift Cards Anonymously',
+  description:
+    'Secure peer-to-peer gift card marketplace with cryptocurrency payments. Trade anonymously without exposing personal information.',
+  keywords: [
+    'gift card',
+    'marketplace',
+    'anonymous',
+    'crypto',
+    'bitcoin',
+    'ethereum',
+  ],
 };
 
-import { Navigation } from '@/src/components/shared/Navigation';
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className="bg-white">
+        {providers}
+        {children}
+      </body>
+    </html>
+  );
+}
 
 export default function RootLayout({
   children,
@@ -27,10 +38,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="min-h-screen bg-slate-50 text-slate-950 antialiased">
+      <body className="min-h-screen bg-[#050505] text-[#e0e0e0] antialiased overflow-hidden">
         <Providers>
-          <Navigation />
-          {children}
+          <div className="flex h-screen overflow-hidden">
+            <Navigation />
+            <main className="flex-1 overflow-y-auto bg-[#050505]">
+              {children}
+            </main>
+          </div>
         </Providers>
       </body>
     </html>
