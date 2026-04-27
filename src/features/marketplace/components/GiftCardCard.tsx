@@ -5,14 +5,20 @@ import { RETAILERS } from '@/src/constants/retailers';
 import { motion } from 'motion/react';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
+import { useRouter } from 'next/navigation';
 
 interface GiftCardCardProps {
   card: GiftCard;
 }
 
 export function GiftCardCard({ card }: GiftCardCardProps) {
+  const router = useRouter();
   const retailer = RETAILERS.find(r => r.id === card.retailerId);
   const discount = Math.round(((card.value - card.price) / card.value) * 100);
+
+  const handleBuyNow = () => {
+    router.push(`/checkout?cardId=${card.id}`);
+  };
 
   return (
     <motion.div 
