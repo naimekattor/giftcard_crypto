@@ -1,0 +1,6 @@
+{
+  "name": "AnonGift",
+  "description": "An anonymous, secure gift card marketplace for buying and selling gift cards without exposing personal identity.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
