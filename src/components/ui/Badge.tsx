@@ -23,7 +23,7 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
       warning:
         'bg-amber-500/10 text-amber-500 border border-amber-500/20',
       error: 'bg-red-500/10 text-red-500 border border-red-500/20',
-      info: 'bg-brand-primary/10 text-brand-primary border border-brand-primary/20',
+      info: 'bg-brand/10 text-brand border border-brand/20',
       default: 'bg-zinc-800 text-zinc-300 border border-zinc-700',
     };
 

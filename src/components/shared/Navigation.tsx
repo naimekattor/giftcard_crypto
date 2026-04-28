@@ -2,13 +2,16 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useAuth } from '@/features/auth/contexts/AuthContext';
 import { useLogout } from '@/features/auth/hooks/useAuth';
 import { Button } from '@/components/ui/Button';
+import Image from 'next/image';
+import { Menu, X, Wallet } from 'lucide-react';
 
 export const Navigation: React.FC = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const { user, isAuthenticated } = useAuth();
   const { mutate: logout, isPending } = useLogout();
   const [isOpen, setIsOpen] = useState(false);
@@ -21,29 +24,32 @@ export const Navigation: React.FC = () => {
     });
   };
 
+  // Helper to style active links using Brand Blue
+  const getLinkStyles = (path: string) => {
+    const isActive = pathname === path;
+    return `text-sm font-bold transition-colors ${
+      isActive ? 'text-brand' : 'text-slate-600 hover:text-brand'
+    }`;
+  };
+
   return (
-    <nav className="bg-zinc-950/80 backdrop-blur-md border-b border-white/10 sticky top-0 z-40">
+    <nav className="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+        <div className="flex justify-between items-center h-20">
+          
+          {/* Logo Section */}
           <div className="flex items-center">
-            <Link href="/" className="font-bold text-2xl text-brand-primary">
-              🎁 GiftCard Market
+            <Link href="/" className="flex items-center transition-opacity hover:opacity-90">
+              <Image src="/logo.png" alt="GiftCard Market" width={140} height={40} priority />
             </Link>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link
-              href="/"
-              className="text-zinc-300 hover:text-brand-primary transition"
-            >
+          <div className="hidden md:flex items-center space-x-8">
+            <Link href="/" className={getLinkStyles('/')}>
               Home
             </Link>
-            <Link
-              href="/marketplace"
-              className="text-zinc-300 hover:text-brand-primary transition"
-            >
+            <Link href="/marketplace" className={getLinkStyles('/marketplace')}>
               Marketplace
             </Link>
 
@@ -57,19 +63,26 @@ export const Navigation: React.FC = () => {
                       ? '/admin/dashboard'
                       : '/buyer/dashboard'
                   }
-                  className="text-zinc-300 hover:text-brand-primary transition"
+                  className={getLinkStyles('/dashboard')}
                 >
                   Dashboard
                 </Link>
+                
+                {/* Wallet Link with subtle Success color hint */}
                 <Link
                   href="/wallet"
-                  className="text-zinc-300 hover:text-brand-primary transition"
+                  className="flex items-center gap-2 text-sm font-bold text-slate-600 hover:text-brand transition-colors"
                 >
+                  <Wallet className="w-4 h-4 text-status-completed" />
                   Wallet
                 </Link>
+
+                <div className="h-6 w-[1px] bg-slate-200 mx-2" />
+
                 <Button
-                  size="sm"
                   variant="outline"
+                  size="sm"
+                  className="border-slate-200 text-slate-600 hover:bg-slate-50 font-bold"
                   onClick={handleLogout}
                   isLoading={isPending}
                 >
@@ -77,16 +90,19 @@ export const Navigation: React.FC = () => {
                 </Button>
               </>
             ) : (
-              <>
+              <div className="flex items-center gap-3">
                 <Link href="/login">
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" className="border-slate-200 text-slate-700 font-bold">
                     Login
                   </Button>
                 </Link>
                 <Link href="/signup">
-                  <Button size="sm">Sign Up</Button>
+                  {/* Sign Up is a conversion action - Using Primary Blue per brand rules */}
+                  <Button variant="outline" size="sm" className="shadow-lg shadow-brand/20 font-bold">
+                    Get Started
+                  </Button>
                 </Link>
-              </>
+              </div>
             )}
           </div>
 
@@ -94,69 +110,55 @@ export const Navigation: React.FC = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-zinc-300 hover:text-brand-primary"
+              className="p-2 text-slate-600 hover:text-brand transition-colors"
             >
-              ☰
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2">
-            <Link
-              href="/"
-              className="block text-zinc-300 hover:text-brand-primary py-2"
-            >
+          <div className="md:hidden pb-6 space-y-1 animate-in slide-in-from-top-2 duration-200">
+            <Link href="/" className="block px-3 py-4 text-base font-bold text-slate-700 border-b border-slate-50">
               Home
             </Link>
-            <Link
-              href="/marketplace"
-              className="block text-zinc-300 hover:text-brand-primary py-2"
-            >
+            <Link href="/marketplace" className="block px-3 py-4 text-base font-bold text-slate-700 border-b border-slate-50">
               Marketplace
             </Link>
 
             {isAuthenticated ? (
               <>
                 <Link
-                  href={
-                    user?.role === 'seller'
-                      ? '/seller/dashboard'
-                      : user?.role === 'admin'
-                      ? '/admin/dashboard'
-                      : '/buyer/dashboard'
-                  }
-                  className="block text-zinc-300 hover:text-brand-primary py-2"
-                >
-                  Dashboard
-                </Link>
-                <Link
                   href="/wallet"
-                  className="block text-zinc-300 hover:text-brand-primary py-2"
+                  className="block px-3 py-4 text-base font-bold text-slate-700 border-b border-slate-50"
                 >
                   Wallet
                 </Link>
-                <Button
-                  variant="outline"
-                  fullWidth
-                  onClick={handleLogout}
-                  isLoading={isPending}
-                >
-                  Logout
-                </Button>
+                <div className="pt-4 px-3">
+                  <Button
+                    variant="outline"
+                    className="w-full border-slate-200 text-slate-700"
+                    onClick={handleLogout}
+                    isLoading={isPending}
+                  >
+                    Logout
+                  </Button>
+                </div>
               </>
             ) : (
-              <>
+              <div className="pt-4 px-3 space-y-3">
                 <Link href="/login" className="block">
-                  <Button variant="outline" fullWidth>
+                  <Button variant="outline" className="w-full border-slate-200 text-slate-700">
                     Login
                   </Button>
                 </Link>
                 <Link href="/signup" className="block">
-                  <Button fullWidth>Sign Up</Button>
+                  <Button variant="primary" className="w-full shadow-lg shadow-brand/20">
+                    Sign Up
+                  </Button>
                 </Link>
-              </>
+              </div>
             )}
           </div>
         )}

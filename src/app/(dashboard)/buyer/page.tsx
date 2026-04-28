@@ -70,7 +70,7 @@ export default function BuyerDashboard() {
                 <h3 className="text-sm font-medium text-muted-foreground mb-2">
                   Pending Balance
                 </h3>
-                <p className="text-3xl font-bold text-brand-accent">
+                <p className="text-3xl font-bold text-cta">
                   {formatCurrency(wallet.balances.temporary)}
                 </p>
               </CardBody>

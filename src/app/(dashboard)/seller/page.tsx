@@ -56,7 +56,7 @@ export default function SellerDashboard() {
                 <h3 className="text-sm font-medium text-muted-foreground mb-2">
                   Available Balance
                 </h3>
-                <p className="text-3xl font-bold text-brand-primary">
+                <p className="text-3xl font-bold text-brand">
                   {formatCurrency(wallet.balances.available)}
                 </p>
               </CardBody>
@@ -67,7 +67,7 @@ export default function SellerDashboard() {
                 <h3 className="text-sm font-medium text-muted-foreground mb-2">
                   Pending Verification
                 </h3>
-                <p className="text-3xl font-bold text-brand-accent">
+                <p className="text-3xl font-bold text-cta">
                   {formatCurrency(wallet.balances.temporary)}
                 </p>
               </CardBody>
@@ -114,8 +114,8 @@ export default function SellerDashboard() {
                 <li className="text-success-start">✓ Only list authentic gift cards</li>
                 <li className="text-success-start">✓ Accurate balance information required</li>
                 <li className="text-success-start">✓ Professional seller behavior expected</li>
-                <li className="text-brand-accent">✗ No fraud or scams</li>
-                <li className="text-brand-accent">✗ No personal data sharing</li>
+                <li className="text-cta">✗ No fraud or scams</li>
+                <li className="text-cta">✗ No personal data sharing</li>
               </ul>
             </CardBody>
           </Card>

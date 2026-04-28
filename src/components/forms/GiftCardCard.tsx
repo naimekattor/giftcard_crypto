@@ -48,7 +48,7 @@ export const GiftCardCard: React.FC<GiftCardCardProps> = ({ card, onBuy }) => {
         {/* Pricing */}
         <div className="mb-3">
           <div className="flex items-baseline gap-2">
-            <span className="text-2xl font-bold text-brand-primary">
+            <span className="text-2xl font-bold text-brand">
               {formatCurrency(card.sellingPrice)}
             </span>
             <span className="text-sm text-muted-foreground line-through">
