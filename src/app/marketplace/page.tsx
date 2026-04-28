@@ -45,19 +45,19 @@ export default function MarketplacePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Marketplace</h1>
-          <p className="text-gray-600">
+          <h1 className="text-4xl font-bold mb-2">Marketplace</h1>
+          <p className="text-muted-foreground">
             Browse and purchase gift cards at discounted prices
           </p>
         </div>
 
         {/* Filters */}
         <Card className="mb-8 p-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Filters</h2>
+          <h2 className="text-lg font-semibold mb-4">Filters</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Search */}
             <form onSubmit={handleSearch} className="col-span-1 md:col-span-2">
@@ -88,7 +88,7 @@ export default function MarketplacePage() {
                   condition: (e.target.value as any) || undefined,
                 })
               }
-              className="px-3 py-2 border border-gray-300 rounded-lg outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+              className="px-3 py-2 bg-zinc-900 border border-white/10 rounded-lg outline-none transition-all duration-200 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 text-zinc-100"
             >
               <option value="">All Conditions</option>
               <option value="new">New</option>
@@ -129,7 +129,7 @@ export default function MarketplacePage() {
                   sortBy: (e.target.value as any) || undefined,
                 })
               }
-              className="px-3 py-2 border border-gray-300 rounded-lg outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-200 w-full md:w-48"
+              className="px-3 py-2 bg-zinc-900 border border-white/10 rounded-lg outline-none transition-all duration-200 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 text-zinc-100 w-full md:w-48"
             >
               <option value="newest">Newest</option>
               <option value="price_asc">Price: Low to High</option>
@@ -161,7 +161,7 @@ export default function MarketplacePage() {
               >
                 Previous
               </Button>
-              <span className="text-gray-600">
+              <span className="text-muted-foreground">
                 Page {filters.page || 1} of {Math.ceil(cardsData.total / (filters.limit || 20))}
               </span>
               <Button
@@ -175,8 +175,8 @@ export default function MarketplacePage() {
           </>
         ) : (
           <div className="text-center py-16">
-            <p className="text-gray-600 text-lg">No gift cards found</p>
-            <p className="text-gray-500">Try adjusting your filters</p>
+            <p className="text-muted-foreground text-lg">No gift cards found</p>
+            <p className="text-zinc-500">Try adjusting your filters</p>
           </div>
         )}
       </div>

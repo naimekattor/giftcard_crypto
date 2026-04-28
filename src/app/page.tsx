@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useAuth } from '@/features/auth/contexts/AuthContext';
 import { Button } from '@/components/ui/Button';
 import { Card, CardBody } from '@/components/ui/Card';
+import { Lock } from 'lucide-react';
 
 export default function HomePage() {
   const { isAuthenticated } = useAuth();
@@ -52,7 +53,9 @@ export default function HomePage() {
           {/* Feature 1 */}
           <Card variant="elevated">
             <CardBody>
-              <div className="text-4xl mb-4">🔒</div>
+              <div className="text-4xl mb-4">
+                <Lock className="inline-block w-8 h-8 text-amber-500"/>
+              </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 Complete Anonymity
               </h3>

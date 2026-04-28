@@ -22,12 +22,12 @@ export const Navigation: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-40">
+    <nav className="bg-zinc-950/80 backdrop-blur-md border-b border-white/10 sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="font-bold text-2xl text-blue-600">
+            <Link href="/" className="font-bold text-2xl text-brand-primary">
               🎁 GiftCard Market
             </Link>
           </div>
@@ -36,13 +36,13 @@ export const Navigation: React.FC = () => {
           <div className="hidden md:flex items-center space-x-6">
             <Link
               href="/"
-              className="text-gray-700 hover:text-blue-600 transition"
+              className="text-zinc-300 hover:text-brand-primary transition"
             >
               Home
             </Link>
             <Link
               href="/marketplace"
-              className="text-gray-700 hover:text-blue-600 transition"
+              className="text-zinc-300 hover:text-brand-primary transition"
             >
               Marketplace
             </Link>
@@ -57,13 +57,13 @@ export const Navigation: React.FC = () => {
                       ? '/admin/dashboard'
                       : '/buyer/dashboard'
                   }
-                  className="text-gray-700 hover:text-blue-600 transition"
+                  className="text-zinc-300 hover:text-brand-primary transition"
                 >
                   Dashboard
                 </Link>
                 <Link
                   href="/wallet"
-                  className="text-gray-700 hover:text-blue-600 transition"
+                  className="text-zinc-300 hover:text-brand-primary transition"
                 >
                   Wallet
                 </Link>
@@ -94,7 +94,7 @@ export const Navigation: React.FC = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600"
+              className="text-zinc-300 hover:text-brand-primary"
             >
               ☰
             </button>
@@ -106,13 +106,13 @@ export const Navigation: React.FC = () => {
           <div className="md:hidden pb-4 space-y-2">
             <Link
               href="/"
-              className="block text-gray-700 hover:text-blue-600 py-2"
+              className="block text-zinc-300 hover:text-brand-primary py-2"
             >
               Home
             </Link>
             <Link
               href="/marketplace"
-              className="block text-gray-700 hover:text-blue-600 py-2"
+              className="block text-zinc-300 hover:text-brand-primary py-2"
             >
               Marketplace
             </Link>
@@ -127,13 +127,13 @@ export const Navigation: React.FC = () => {
                       ? '/admin/dashboard'
                       : '/buyer/dashboard'
                   }
-                  className="block text-gray-700 hover:text-blue-600 py-2"
+                  className="block text-zinc-300 hover:text-brand-primary py-2"
                 >
                   Dashboard
                 </Link>
                 <Link
                   href="/wallet"
-                  className="block text-gray-700 hover:text-blue-600 py-2"
+                  className="block text-zinc-300 hover:text-brand-primary py-2"
                 >
                   Wallet
                 </Link>

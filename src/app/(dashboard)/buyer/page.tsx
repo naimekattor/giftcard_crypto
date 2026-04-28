@@ -26,12 +26,12 @@ export default function BuyerDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Welcome Back!</h1>
-          <p className="text-gray-600 mt-1">
+          <h1 className="text-3xl font-bold">Welcome Back!</h1>
+          <p className="text-muted-foreground mt-1">
             User ID: {user.userId.slice(0, 8)}... • Role: {user.role}
           </p>
         </div>
@@ -43,12 +43,12 @@ export default function BuyerDashboard() {
           </div>
         ) : wallet ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <Card variant="elevated">
+            <Card className="bg-success-gradient border-none text-white">
               <CardBody>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium opacity-80 mb-2">
                   Available Balance
                 </h3>
-                <p className="text-3xl font-bold text-blue-600">
+                <p className="text-3xl font-bold">
                   {formatCurrency(wallet.balances.available)}
                 </p>
               </CardBody>
@@ -56,10 +56,10 @@ export default function BuyerDashboard() {
 
             <Card variant="elevated">
               <CardBody>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium text-muted-foreground mb-2">
                   Verified Balance
                 </h3>
-                <p className="text-3xl font-bold text-green-600">
+                <p className="text-3xl font-bold text-success-start">
                   {formatCurrency(wallet.balances.verified)}
                 </p>
               </CardBody>
@@ -67,10 +67,10 @@ export default function BuyerDashboard() {
 
             <Card variant="elevated">
               <CardBody>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium text-muted-foreground mb-2">
                   Pending Balance
                 </h3>
-                <p className="text-3xl font-bold text-yellow-600">
+                <p className="text-3xl font-bold text-brand-accent">
                   {formatCurrency(wallet.balances.temporary)}
                 </p>
               </CardBody>
@@ -81,7 +81,7 @@ export default function BuyerDashboard() {
         {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <Link href="/marketplace">
-            <Button fullWidth>Browse Gift Cards</Button>
+            <Button fullWidth variant="primary">Browse Gift Cards</Button>
           </Link>
           <Link href="/wallet">
             <Button variant="outline" fullWidth>
@@ -93,7 +93,7 @@ export default function BuyerDashboard() {
         {/* Recent Transactions */}
         <Card>
           <CardHeader>
-            <h2 className="text-lg font-semibold text-gray-900">
+            <h2 className="text-lg font-semibold">
               Recent Transactions
             </h2>
           </CardHeader>
@@ -105,18 +105,18 @@ export default function BuyerDashboard() {
             ) : transactions && transactions.data.length > 0 ? (
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50 border-b border-gray-200">
+                  <thead className="bg-white/5 border-b border-white/10">
                     <tr>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                      <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">
                         Date
                       </th>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                      <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">
                         Description
                       </th>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                      <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">
                         Amount
                       </th>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                      <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">
                         Type
                       </th>
                     </tr>
@@ -125,15 +125,15 @@ export default function BuyerDashboard() {
                     {transactions.data.map((tx) => (
                       <tr
                         key={tx.id}
-                        className="border-b border-gray-200 hover:bg-gray-50"
+                        className="border-b border-white/10 hover:bg-white/5"
                       >
-                        <td className="px-4 py-3 text-sm text-gray-900">
+                        <td className="px-4 py-3 text-sm text-foreground">
                           {formatDate(tx.createdAt)}
                         </td>
-                        <td className="px-4 py-3 text-sm text-gray-900">
+                        <td className="px-4 py-3 text-sm text-foreground">
                           {tx.description}
                         </td>
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                        <td className="px-4 py-3 text-sm font-medium text-foreground">
                           {formatCurrency(tx.amount)}
                         </td>
                         <td className="px-4 py-3 text-sm">
@@ -151,7 +151,7 @@ export default function BuyerDashboard() {
                 </table>
               </div>
             ) : (
-              <p className="text-center text-gray-500 py-8">
+              <p className="text-center text-muted-foreground py-8">
                 No transactions yet
               </p>
             )}

@@ -23,12 +23,12 @@ export default function SellerDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Seller Dashboard</h1>
-          <p className="text-gray-600 mt-1">
+          <h1 className="text-3xl font-bold">Seller Dashboard</h1>
+          <p className="text-muted-foreground mt-1">
             User ID: {user.userId.slice(0, 8)}... • Role: {user.role}
           </p>
         </div>
@@ -40,12 +40,12 @@ export default function SellerDashboard() {
           </div>
         ) : wallet ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <Card variant="elevated">
+            <Card className="bg-success-gradient border-none text-white">
               <CardBody>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium opacity-80 mb-2">
                   Total Earnings
                 </h3>
-                <p className="text-3xl font-bold text-green-600">
+                <p className="text-3xl font-bold">
                   {formatCurrency(wallet.totalEarnings)}
                 </p>
               </CardBody>
@@ -53,10 +53,10 @@ export default function SellerDashboard() {
 
             <Card variant="elevated">
               <CardBody>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium text-muted-foreground mb-2">
                   Available Balance
                 </h3>
-                <p className="text-3xl font-bold text-blue-600">
+                <p className="text-3xl font-bold text-brand-primary">
                   {formatCurrency(wallet.balances.available)}
                 </p>
               </CardBody>
@@ -64,10 +64,10 @@ export default function SellerDashboard() {
 
             <Card variant="elevated">
               <CardBody>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium text-muted-foreground mb-2">
                   Pending Verification
                 </h3>
-                <p className="text-3xl font-bold text-yellow-600">
+                <p className="text-3xl font-bold text-brand-accent">
                   {formatCurrency(wallet.balances.temporary)}
                 </p>
               </CardBody>
@@ -77,13 +77,13 @@ export default function SellerDashboard() {
 
         {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <Button fullWidth>List New Gift Card</Button>
-          <Link href="/wallet">
+          <Button fullWidth variant="accent">List New Gift Card</Button>
+          <Link href="/wallet" className="flex-1">
             <Button variant="outline" fullWidth>
               Withdraw Earnings
             </Button>
           </Link>
-          <Link href="/seller/listings">
+          <Link href="/seller/listings" className="flex-1">
             <Button variant="secondary" fullWidth>
               View My Listings
             </Button>
@@ -94,8 +94,8 @@ export default function SellerDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card>
             <CardBody>
-              <h3 className="font-semibold text-gray-900 mb-3">How It Works</h3>
-              <ol className="list-decimal list-inside space-y-2 text-sm text-gray-600">
+              <h3 className="font-semibold mb-3">How It Works</h3>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-muted-foreground">
                 <li>List your gift card with denomination and asking price</li>
                 <li>Wait for admin verification of card authenticity</li>
                 <li>Your card appears in the marketplace when approved</li>
@@ -107,15 +107,15 @@ export default function SellerDashboard() {
 
           <Card>
             <CardBody>
-              <h3 className="font-semibold text-gray-900 mb-3">
+              <h3 className="font-semibold mb-3">
                 Platform Guidelines
               </h3>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>✓ Only list authentic gift cards</li>
-                <li>✓ Accurate balance information required</li>
-                <li>✓ Professional seller behavior expected</li>
-                <li>✗ No fraud or scams</li>
-                <li>✗ No personal data sharing</li>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="text-success-start">✓ Only list authentic gift cards</li>
+                <li className="text-success-start">✓ Accurate balance information required</li>
+                <li className="text-success-start">✓ Professional seller behavior expected</li>
+                <li className="text-brand-accent">✗ No fraud or scams</li>
+                <li className="text-brand-accent">✗ No personal data sharing</li>
               </ul>
             </CardBody>
           </Card>

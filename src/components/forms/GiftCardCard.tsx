@@ -33,10 +33,10 @@ export const GiftCardCard: React.FC<GiftCardCardProps> = ({ card, onBuy }) => {
         {/* Header */}
         <div className="flex justify-between items-start mb-3">
           <div>
-            <h3 className="font-bold text-lg">
+            <h3 className="font-bold text-lg text-foreground">
               {getRetailerName(card.retailerId)}
             </h3>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               {card.denomination} {card.condition === 'used' ? '(Used)' : '(New)'}
             </p>
           </div>
@@ -48,10 +48,10 @@ export const GiftCardCard: React.FC<GiftCardCardProps> = ({ card, onBuy }) => {
         {/* Pricing */}
         <div className="mb-3">
           <div className="flex items-baseline gap-2">
-            <span className="text-2xl font-bold text-blue-600">
+            <span className="text-2xl font-bold text-brand-primary">
               {formatCurrency(card.sellingPrice)}
             </span>
-            <span className="text-sm text-gray-500 line-through">
+            <span className="text-sm text-muted-foreground line-through">
               {formatCurrency(card.denomination)}
             </span>
             <Badge variant="success" className="text-xs">
@@ -62,14 +62,14 @@ export const GiftCardCard: React.FC<GiftCardCardProps> = ({ card, onBuy }) => {
 
         {/* Description */}
         {card.description && (
-          <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+          <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
             {card.description}
           </p>
         )}
 
         {/* Seller Info */}
         {card.seller && (
-          <div className="text-xs text-gray-500 mb-3">
+          <div className="text-xs text-muted-foreground mb-3">
             <p>
               Seller Rating: ⭐ {card.seller.rating || 'N/A'} ({card.seller.successRate || 0}% success rate)
             </p>
