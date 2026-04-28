@@ -1,8 +1,8 @@
 'use client';
 
 import { Search, SlidersHorizontal, ChevronDown } from 'lucide-react';
-import { RETAILERS } from '@/src/constants/retailers';
-import { cn } from '@/src/lib/utils';
+import { RETAILERS } from '@/constants/retailers';
+import { cn } from '@/lib/utils';
 
 interface MarketplaceFiltersProps {
   currentFilter: {

@@ -32,4 +32,3 @@ export const RetailerDropdown: React.FC<RetailerDropdownProps> = ({
     />
   );
 };
-}

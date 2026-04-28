@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { RETAILERS } from '@/src/constants/retailers';
+import { RETAILERS } from '@/constants/retailers';
 import { GiftCardList } from './GiftCardList';
 import { MarketplaceFilters } from './MarketplaceFilters';
 
@@ -71,4 +71,4 @@ export function MarketplacePage() {
   );
 }
 
-import { cn } from '@/src/lib/utils';
+import { cn } from '@/lib/utils';

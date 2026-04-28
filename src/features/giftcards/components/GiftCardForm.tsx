@@ -3,8 +3,8 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { RETAILERS } from '@/src/constants/retailers';
-import { giftCardService } from '@/src/services/giftCardService';
+import { RETAILERS } from '@/constants/retailers';
+import { giftCardService } from '@/services/giftCardService';
 import { useState } from 'react';
 import { Loader2, Plus } from 'lucide-react';
 

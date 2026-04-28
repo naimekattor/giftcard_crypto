@@ -1,7 +1,7 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { giftCardService } from '@/src/services/giftCardService';
+import { giftCardService } from '@/services/giftCardService';
 import { GiftCardCard } from './GiftCardCard';
 import { Loader2 } from 'lucide-react';
 

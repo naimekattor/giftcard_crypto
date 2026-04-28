@@ -11,10 +11,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/seller/page": [
+    "/marketplace/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/seller/page.js"
+      "static/chunks/app/marketplace/page.js"
     ]
   }
 }
