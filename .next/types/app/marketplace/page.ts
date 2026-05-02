@@ -1,4 +1,4 @@
-// File: C:\Users\naim dev\Desktop\naim_s_project\giftcard_crypto\src\app\marketplace\page.tsx
+// File: C:\Users\naim dev\Desktop\naim_s_project\gitcard_crypto\frontend\src\app\marketplace\page.tsx
 import * as entry from '../../../../src/app/marketplace/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

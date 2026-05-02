@@ -52,6 +52,9 @@ export const Navigation: React.FC = () => {
             <Link href="/marketplace" className={getLinkStyles('/marketplace')}>
               Marketplace
             </Link>
+            <Link href="/seller" className={getLinkStyles('/seller')}>
+              Sell
+            </Link>
 
             {isAuthenticated ? (
               <>
@@ -92,15 +95,11 @@ export const Navigation: React.FC = () => {
             ) : (
               <div className="flex items-center gap-3">
                 <Link href="/login">
-                  <Button variant="outline" size="sm" className="border-slate-200 text-slate-700 font-bold">
-                    Login
-                  </Button>
+                 
                 </Link>
                 <Link href="/signup">
                   {/* Sign Up is a conversion action - Using Primary Blue per brand rules */}
-                  <Button variant="outline" size="sm" className="shadow-lg shadow-brand/20 font-bold">
-                    Get Started
-                  </Button>
+                  
                 </Link>
               </div>
             )}
@@ -125,6 +124,9 @@ export const Navigation: React.FC = () => {
             </Link>
             <Link href="/marketplace" className="block px-3 py-4 text-base font-bold text-slate-700 border-b border-slate-50">
               Marketplace
+            </Link>
+            <Link href="/seller" className="block px-3 py-4 text-base font-bold text-slate-700 border-b border-slate-50">
+              Sell
             </Link>
 
             {isAuthenticated ? (

@@ -96,6 +96,12 @@ export const RETAILERS: Retailer[] = [
     category: 'Shopping',
     isActive: true,
   },
+  {
+    id: 'john-lewis',
+    name: 'John Lewis',
+    category: 'Shopping',
+    isActive: true,
+  },
 ];
 
 export const getRetailerById = (id: string): Retailer | undefined => {
